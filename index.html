@@ -2,33 +2,63 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Página Contable</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Archivo CSS para estilos -->
+    <title>Gestión de Cuentas</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <h1>Mi Página Contable</h1>
-    </header>
+    <h1>Gestión de Cuentas</h1>
 
-    <div class="carousel">
-        <!-- Carrusel de imágenes aquí -->
-        <img src="imagen1.jpg" alt="Imagen 1">
-        <img src="imagen2.jpg" alt="Imagen 2">
-        <img src="imagen3.jpg" alt="Imagen 3">
-    </div>
+    <label for="monto">Monto:</label>
+    <input type="text" id="monto" oninput="formatoMoneda(this)"><br><br>
 
-    <div class="content">
-        <!-- Contenido de la página aquí -->
-        <h2>Bienvenido a mi página web para llevar mis cuentas</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempus malesuada eros, vitae feugiat orci viverra id.</p>
-    </div>
+    <label for="descripcion">Descripción:</label>
+    <input type="text" id="descripcion">
+    <button onclick="agregarCuenta()">Añadir Cuenta</button><br><br>
 
-    <footer>
-        <p>&copy; 2021 Mi Página Contable</p>
-    </footer>
+    <table id="tablaCuentas">
+        <tr>
+            <th>Monto</th>
+            <th>Descripción</th>
+            <th>Acciones</th>
+        </tr>
+    </table>
 
+    <script>
+        function formatoMoneda(input) {
+            let num = parseFloat(input.value);
+            input.value = num.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' });
+        }
+
+        function agregarCuenta() {
+            let monto = document.getElementById('monto').value;
+            let descripcion = document.getElementById('descripcion').value;
+
+            let table = document.getElementById('tablaCuentas');
+            let row = table.insertRow(-1);
+            let cell1 = row.insertCell(0);
+            let cell2 = row.insertCell(1);
+            let cell3 = row.insertCell(2);
+            cell1.innerHTML = monto;
+            cell2.innerHTML = descripcion;
+            cell3.innerHTML = '<button onclick="borrarCuenta(this)">Borrar</button>';
+        }
+
+        function borrarCuenta(row) {
+            var i = row.parentNode.parentNode.rowIndex;
+            document.getElementById('tablaCuentas').deleteRow(i);
+        }
+    </script>
 </body>
 </html>
