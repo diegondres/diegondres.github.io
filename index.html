@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,13 +10,17 @@
             width: 100%;
             border-collapse: collapse;
         }
-        table, th, td {
+
+        table,
+        th,
+        td {
             border: 1px solid black;
             padding: 8px;
             text-align: left;
         }
     </style>
 </head>
+
 <body>
 
     <h1>Gestión de Cuentas</h1>
@@ -37,8 +42,10 @@
 
     <script>
         function formatoMoneda(input) {
-            let num = parseFloat(input.value);
-            input.value = num.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' });
+            let num = parseFloat(input.value.replace(/\D/g, ''));
+            if (!isNaN(num)) {
+                input.value = num.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' });
+            }
         }
 
         function agregarCuenta() {
@@ -61,4 +68,5 @@
         }
     </script>
 </body>
+
 </html>
