@@ -3,43 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Cuentas</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+    <title>Registro de Datos</title>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 
-        table,
-        th,
-        td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: left;
-        }
-    </style>
-</head>
+    <script type="module">
+        import { agregarFila } from './main.js';
 
-<body>
+        const boton = document.querySelector('#miBoton');
+        boton.addEventListener('click', agregarFila);
 
-    <h1>Gestión de Cuentas</h1>
-
-    <label for="monto">Monto:</label>
-    <input type="text" id="monto" oninput="formatoMoneda(this)"><br><br>
-
-    <label for="descripcion">Descripción:</label>
-    <input type="text" id="descripcion">
-    <button onclick="agregarCuenta()">Añadir Cuenta</button><br><br>
-
-    <table id="tablaCuentas">
-        <tr>
-            <th>Monto</th>
-            <th>Descripción</th>
-            <th>Acciones</th>
-        </tr>
-    </table>
-
+    </script>
     <script>
         function formatoMoneda(input) {
             let num = parseFloat(input.value.replace(/\D/g, ''));
@@ -47,26 +23,28 @@
                 input.value = num.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' });
             }
         }
-
-        function agregarCuenta() {
-            let monto = document.getElementById('monto').value;
-            let descripcion = document.getElementById('descripcion').value;
-
-            let table = document.getElementById('tablaCuentas');
-            let row = table.insertRow(-1);
-            let cell1 = row.insertCell(0);
-            let cell2 = row.insertCell(1);
-            let cell3 = row.insertCell(2);
-            cell1.innerHTML = monto;
-            cell2.innerHTML = descripcion;
-            cell3.innerHTML = '<button onclick="borrarCuenta(this)">Borrar</button>';
-        }
-
-        function borrarCuenta(row) {
-            var i = row.parentNode.parentNode.rowIndex;
-            document.getElementById('tablaCuentas').deleteRow(i);
-        }
     </script>
+
+</head>
+
+<body>
+    <h1>Gestión de Cuentas</h1>
+
+    <h1>Registro de Datos</h1>
+
+    <label for="numeroInput">monto:</label>
+    <input type="text" id="numeroInput" oninput="formatoMoneda(this)"><br><br>
+
+    <label for="descripcionInput">Descripción:</label>
+    <input type="text" id="descripcionInput">
+    <button id="miBoton">Añadir Cuenta</button><br><br>
+
+    <table id="tablaRegistros">
+        <!-- Aquí se agregarán las filas de la tabla con los registros -->
+    </table>
+
+
+
 </body>
 
 </html>
