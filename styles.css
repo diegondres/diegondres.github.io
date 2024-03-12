@@ -1,0 +1,35 @@
+/* Estilos para el header */
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Estilos para el footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Estilos para el carrusel de imágenes */
+.carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel img {
+    max-width: 100%;
+    height: auto;
+    margin: 0 10px;
+}
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+}
