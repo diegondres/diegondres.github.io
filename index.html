@@ -8,6 +8,7 @@
     <title>Registro de Datos</title>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <link rel="stylesheet" href="styles.css"> <!-- Archivo de estilos CSS -->
 
     <script type="module">
         import { agregarFila } from './main.js';
@@ -37,12 +38,42 @@
 
     <label for="descripcionInput">Descripción:</label>
     <input type="text" id="descripcionInput">
+    <label for="typeDropdown">Tipo de cuenta:</label>
+    <select id="typeDropdown">
+        <option value="cc">Cuenta Corriente</option>
+        <option value="tc">Tarjeta de Credito</option>
+    </select>
+    <br><br>
     <button id="miBoton">Añadir Cuenta</button><br><br>
+    <div class="table-container">
+        <h1>Cuenta Corriente</h1>
 
-    <table id="tablaRegistros">
-        <!-- Aquí se agregarán las filas de la tabla con los registros -->
-    </table>
+        <table id="tablaCC">
+            <thead>
+                <tr>
+                    <th>Detalle</th>
+                    <th>Monto</th>
+                    <th>Borrar</th>
+                </tr>
+            </thead>
+            <!-- Aquí se agregarán las filas de la tabla con los registros -->
+        </table>
+    </div>
+    <br><br>
+    <div class="table-container">
+        <h1>Tarjeta de Credito</h1>
 
+        <table id="tablaTC">
+            <thead>
+                <tr>
+                    <th>Detalle</th>
+                    <th>Monto</th>
+                    <th>Borrar</th>
+                </tr>
+            </thead>
+            <!-- Aquí se agregarán las filas de la tabla con los registros -->
+        </table>
+    </div>
 
 
 </body>

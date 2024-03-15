@@ -1,35 +1,27 @@
-/* Estilos para el header */
-header {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
-}
-
-/* Estilos para el footer */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
-}
-
-/* Estilos para el carrusel de imágenes */
-.carousel {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.carousel img {
-    max-width: 100%;
-    height: auto;
-    margin: 0 10px;
-}
-
-/* Estilos generales */
-body {
+table {
     font-family: Arial, sans-serif;
-    max-width: 800px;
-    margin: 0 auto;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: lightblue; /* Fondo celeste para las celdas de encabezado */
+    color: black; /* Texto en color negro para las celdas de encabezado */
+    font-weight: bold; /* Negrita para las celdas de encabezado */
+}
+
+td, th {
+    border: 1px solid #dddddd; /* Borde delgados para las celdas */
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Fondo gris claro para filas pares */
+}
+
+.table-container {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    max-width: 600px; /* Ancho máximo del contenedor */
 }
